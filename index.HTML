@@ -1,0 +1,38 @@
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const sound = document.getElementById("sound");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * window.innerWidth - 100;
+    const y = Math.random() * window.innerHeight - 100;
+    noBtn.style.position = "fixed";
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+    noBtn.style.transform = `scale(${Math.random() + 0.5})`;
+});
+
+noBtn.addEventListener("click", () => {
+    noBtn.style.display = "none";
+});
+
+yesBtn.addEventListener("click", () => {
+    sound.play();
+    document.body.innerHTML = `
+        <div style="
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#ffe6eb;
+            font-family:Comic Sans MS;
+            text-align:center;
+        ">
+            <h1 style="color:#ff4d6d;">💖 C’ÉTAIT ÉCRIT 💖</h1>
+            <p>De toute façon, tu n’avais pas le choix 😏</p>
+            <img src="https://media.tenor.com/5w2pK9kXK5cAAAAC/love-you.gif" width="260">
+        </div>
+    `;
+});
+</script>
